@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Management System</title>
+</head>
+<body>
+    <h1 style="color: pink;">Library Management System ♥</h1>
+</br>
+</br>
+<dir style="background-color: pink; border-radius:20px; height:180px; width:650px;">
+    <h2 style=" color: white; height:50px;">멤버 관리</h2>
+<dir>
+    <form action="/add_member" method="post">
+        <label for="member_name" style="background-color: pink;">멤버 추가</label>
+        <input type="text" name="member_name" required>
+        <button type="submit" 
+	style="background-color: pink; color: white; border:none; border-radius:10px;
+	font-size:15px;
+	width:50px; height:23px;">
+	추가
+        </button>
+    </form>
+</br>
+    <form action="/remove_member" method="post" style="border-radius:10px;">
+        <label for="member_name" style="background-color: pink;">멤버 삭제</label>
+        <select name="member_name" required>
+            {% for member in members %}
+                <option value="{{ member }}">{{ member }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" style="background-color: pink; color: white; border:none; border-radius:10px;
+font-size:15px; width:50px">삭제</button>
+    </form>
+</dir>
+</dir>
+</br>
+</br>
+<dir style="background-color: pink; border-radius:20px; height:180px; width:650px;">
+    <h2 style="color: white; height:50px;">책 관리</h2>
+<dir>
+    <form action="/add_book" method="post">
+        <label for="book_title" style="background-color: pink;">책 추가</label>
+        <input type="text" name="book_title" required>
+        <button type="submit" style="background-color: pink; color: white; border:none; border-radius:10px; font-size:15px;">추가</button>
+    </form>
+</br>
+    <form action="/remove_book" method="post">
+        <label for="book_id" style="background-color: pink;">책 삭제</label>
+        <select name="book_id" required>
+            {% for id, title in books.items() %}
+                <option value="{{ id }}">{{ title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" style="background-color: pink; color: white; border:none; border-radius:10px; font-size:15px;">삭제</button>
+    </form>
+</dir>
+</dir>
+</br>
+</br>
+
+<dir style="background-color: pink; border-radius:20px; height:180px; width:650px">
+<h2 style="color: white; ">대출/반납 관리</h2>
+
+<dir style="background-color: white; border-radius:20px; height:120px; width:600px;">
+</br>
+    <form action="/borrow_book" method="post">
+        <label for="member_name" style="background-color: pink;">대출 멤버</label>
+        <select name="member_name" required>
+            {% for member in members %}
+                <option value="{{ member }}">{{ member }}</option>
+            {% endfor %}
+        </select>
+        <label for="book_id" style="background-color: pink;">책 선택</label>
+        <select name="book_id" required>
+            {% for id, title in books.items() %}
+                <option value="{{ id }}">{{ title }}</option>
+            {% endfor %}
+        </select>
+        <button type="submit" style="background-color: pink; color: white; border:none; border-radius:10px; font-size:15px;">대출</button>
+    </form>
+</br>
+    <form action="/return_book" method="post">
+        <label for="member_name" style="background-color: pink;">반납 멤버</label>
+        <select name="member_name" required>
+            {% for member in members %}
+                <option value="{{ member }}">{{ member }}</option>
+            {% endfor %}
+        </select>
+        <label for="book_title" style="background-color: pink;">책 선택</label>
+        <select name="book_title" required>
+            {% for member, books_list in members.items() %}
+                {% for book in books_list %}
+                    <option value="{{ book }}">{{ book }}</option>
+                {% endfor %}
+            {% endfor %}
+        </select>
+        <button type="submit" style="background-color: pink; color: white; border:none; border-radius:10px; font-size:15px;">반납</button>
+    </form>
+</dir>
+</dir>
+
+</body>
+</html>
