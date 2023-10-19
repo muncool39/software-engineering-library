@@ -32,10 +32,10 @@ while True:
     num2 = float(input("두 번째 숫자를 입력하세요: ")
 
     if operator == '+':
-        print("결과:", add(num1, num2))
+        print("연산결과:", add(num1, num2))
     elif operator == '-':
-        print("결과:", subtract(num1, num2))
+        print("연산결과:", subtract(num1, num2))
     elif operator == '*':
-        print("결과:", multiply(num1, num2))
+        print("연산결과:", multiply(num1, num2))
     elif operator == '/':
-        print("결과:", divide(num1, num2))
+        print("연산결과:", divide(num1, num2))
