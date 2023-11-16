@@ -1,2 +1,2 @@
 v=1;
-print(v)
+prin(v)
